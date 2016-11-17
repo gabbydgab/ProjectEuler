@@ -67,9 +67,9 @@ final class MultiplesOfThreeOrFiveTest extends TestCase
     public function proofs() : array
     {
         return [
-            [10, 23], // given output   
-            [16, 75], // test confirmation
-            [1000, 266333] // final answer
+            'given-output'  => [10, 23],
+            'test-result'   => [16, 75],
+            'final-answer'  => [1000, 266333]
         ];
     }
 }
