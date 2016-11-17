@@ -37,33 +37,30 @@ final class Problem1Test extends TestCase
      * @test
      * @expectedException InvalidArgumentException
      */
-    public function throwsInvalidArgumentExceptionIfNotNaturalNumber()
+    public function throwsInvalidArgumentExceptionIfNotWholeNumber()
     {
         $number = new NaturalNumber(-1);
     }
 
     /**
-     * @dataProvider answerData
+     * @test
+     * @dataProvider proofs
      * @param NaturalNumber $number
      * @param type $sum
      */
-    public function testNumberWithMultiplesOfThree($number, $sum)
+    public function sumForMultiplesOfThreeOrFiveBelowGivenNumber($number, $sum)
     {
         $number = new NaturalNumber($number);
-        
+
         $this->assertEquals($number->sumForMultiplesOf(3, 5), $sum);
     }
 
-    public function answerData() : array
+    public function proofs() : array
     {
         return [
-            [10, 23],
-            [11, 33],
-            [16, 75],
-            [17, 75],
-            [18, 75],
-            [19, 93],
-            [1000, 266333]
+            [10, 23], // given output   
+            [16, 75], // test confirmation
+            [1000, 266333] // final answer
         ];
     }
 }
