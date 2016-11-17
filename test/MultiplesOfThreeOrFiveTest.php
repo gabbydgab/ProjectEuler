@@ -55,10 +55,10 @@ final class MultiplesOfThreeOrFiveTest extends TestCase
     /**
      * @test
      * @dataProvider proofs
-     * @param NaturalNumber $number
-     * @param type $sum
+     * @param int $number
+     * @param int $sum
      */
-    public function sumForMultiplesOfThreeOrFiveBelowGivenNumber($number, $sum)
+    public function sumForMultiplesOfThreeOrFiveBelowGivenNumber(int $number, int $sum)
     {
         $number = new NaturalNumber(new Number($number));
 
