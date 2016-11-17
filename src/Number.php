@@ -31,7 +31,7 @@ namespace ProjectEuler;
 final class Number
 {
     private $value;
-    
+
     public function __construct($value)
     {
         $this->value = $value;
