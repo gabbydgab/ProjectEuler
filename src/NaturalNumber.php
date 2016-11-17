@@ -38,7 +38,7 @@ final class NaturalNumber
     /**
      * Sets the value of the number
      *
-     * @param  int $number
+     * @param  Number $number
      * @throws InvalidArgumentException
      */
     public function __construct(Number $number)
