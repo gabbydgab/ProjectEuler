@@ -30,38 +30,66 @@ namespace ProjectEuler;
 
 use InvalidArgumentException;
 
-class NaturalNumber extends Number
+final class NaturalNumber
 {
-    protected $factors = [];
+    private $value;
 
-    public function __construct(int $value = 0)
+    /**
+     * Sets the value of the number
+     *
+     * @param int $number
+     * @throws InvalidArgumentException
+     */
+    public function __construct(int $number = 0)
     {
-        if ($value < 0) {
+        if ($number < 0) {
             throw new InvalidArgumentException("must be positive whole numbers");
         }
 
-        parent::__construct($value);
+        $this->value = $number;
     }
 
+    /**
+     * Iterate multiples of given number
+     *
+     * @param type $multipliers
+     * @return int
+     */
     public function sumForMultiplesOf(int ...$multipliers) : int
     {
         $total = 0;
         foreach ($multipliers as $multiplier) {
             $total += $this->multiplesOf($multiplier);
         }
-        
+
         return $total;
     }
 
+    /**
+     * Checks multiples of N below the given number
+     *
+     * @param int $multiplier
+     * @return int
+     */
     public function multiplesOf(int $multiplier) : int
     {
         $multiples = [];
-        for ($number = 1; $number < $this->value; $number++) {
+        for ($number = 1; $number < $this->currentValue(); $number++) {
             if (($number % $multiplier) == 0 ) {
                 array_push($multiples, $number);
             }
         }
 
         return array_sum($multiples);
+    }
+
+    /**
+     * Get the current value of the number
+     *
+     * @return type
+     */
+    private function currentValue()
+    {
+        return $this->value;
     }
 }
