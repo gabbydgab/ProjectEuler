@@ -29,10 +29,11 @@ declare(strict_types = 1);
 namespace ProjectEuler;
 
 use InvalidArgumentException;
+use ProjectEuler\Number;
 
 final class NaturalNumber
 {
-    private $value;
+    private $number;
 
     /**
      * Sets the value of the number
@@ -40,13 +41,13 @@ final class NaturalNumber
      * @param  int $number
      * @throws InvalidArgumentException
      */
-    public function __construct(int $number = 0)
+    public function __construct(Number $number)
     {
-        if ($number < 0) {
-            throw new InvalidArgumentException("must be positive whole numbers");
+        if ($number->currentValue() < 0) {
+            throw new InvalidArgumentException("must be positive whole number or equal to zero");
         }
 
-        $this->value = $number;
+        $this->number = $number;
     }
 
     /**
@@ -73,23 +74,13 @@ final class NaturalNumber
      */
     public function multiplesOf(int $multiplier) : int
     {
-        $multiples = [];
-        for ($number = 1; $number < $this->currentValue(); $number++) {
+        $numbers = [];
+        for ($number = 1; $number < $this->number->currentValue(); $number++) {
             if (($number % $multiplier) == 0) {
-                array_push($multiples, $number);
+                array_push($numbers, $number);
             }
         }
 
-        return array_sum($multiples);
-    }
-
-    /**
-     * Get the current value of the number
-     *
-     * @return type
-     */
-    private function currentValue()
-    {
-        return $this->value;
+        return array_sum($numbers);
     }
 }

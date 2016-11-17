@@ -30,6 +30,7 @@ namespace ProjectEulerTest;
 
 use PHPUnit\Framework\TestCase;
 use ProjectEuler\NaturalNumber;
+use ProjectEuler\Number;
 
 /**
  * Multiples of 3 and 5 (Problem #1)
@@ -48,7 +49,7 @@ final class MultiplesOfThreeOrFiveTest extends TestCase
      */
     public function throwsInvalidArgumentExceptionIfNotWholeNumber()
     {
-        $number = new NaturalNumber(-1);
+        $number = new NaturalNumber(new Number(-1));
     }
 
     /**
@@ -59,7 +60,7 @@ final class MultiplesOfThreeOrFiveTest extends TestCase
      */
     public function sumForMultiplesOfThreeOrFiveBelowGivenNumber($number, $sum)
     {
-        $number = new NaturalNumber($number);
+        $number = new NaturalNumber(new Number($number));
 
         $this->assertEquals($number->sumForMultiplesOf(3, 5), $sum);
     }
