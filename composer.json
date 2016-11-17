@@ -1,5 +1,5 @@
 {
-    "name": "TDD/ProjectEuler",
+    "name": "gabbydgab/project-euler",
     "require": {
         "php": "~7.0.0"
     },
