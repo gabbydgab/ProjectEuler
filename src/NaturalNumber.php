@@ -37,7 +37,7 @@ final class NaturalNumber
     /**
      * Sets the value of the number
      *
-     * @param int $number
+     * @param  int $number
      * @throws InvalidArgumentException
      */
     public function __construct(int $number = 0)
@@ -52,7 +52,7 @@ final class NaturalNumber
     /**
      * Iterate multiples of given number
      *
-     * @param type $multipliers
+     * @param  type $multipliers
      * @return int
      */
     public function sumForMultiplesOf(int ...$multipliers) : int
@@ -68,14 +68,14 @@ final class NaturalNumber
     /**
      * Checks multiples of N below the given number
      *
-     * @param int $multiplier
+     * @param  int $multiplier
      * @return int
      */
     public function multiplesOf(int $multiplier) : int
     {
         $multiples = [];
         for ($number = 1; $number < $this->currentValue(); $number++) {
-            if (($number % $multiplier) == 0 ) {
+            if (($number % $multiplier) == 0) {
                 array_push($multiples, $number);
             }
         }
