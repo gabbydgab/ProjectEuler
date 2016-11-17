@@ -1,0 +1,19 @@
+{
+    "name": "TDD/ProjectEuler",
+    "require": {
+        "php": "~7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "ProjectEuler\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ProjectEulerTest\\": "test/"
+        }
+    }
+}
