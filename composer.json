@@ -4,7 +4,9 @@
         "php": "~7.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.6"
+        "squizlabs/php_codesniffer": "^2.6.2",
+        "sebastian/phpcpd": "^2.0.4",
+        "phpunit/phpunit": "^5.6"        
     },
     "autoload": {
         "psr-4": {
@@ -15,5 +17,19 @@
         "psr-4": {
             "ProjectEulerTest\\": "test/"
         }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "@debug"
+        ],
+        "debug": [
+            "@cs",
+            "@cpd",
+            "@test"
+        ],
+        "cs": "phpcs --ignore=/vendor,/public src test",
+        "cs-fix": "phpcbf --ignore=/vendor,/public src test",
+        "cpd": "phpcpd --exclude=/vendor,/public --fuzzy src test",
+        "test": "phpunit --verbose"
     }
 }
