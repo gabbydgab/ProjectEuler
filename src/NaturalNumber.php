@@ -43,7 +43,7 @@ final class NaturalNumber
      */
     public function __construct(Number $number)
     {
-        if ($number->currentValue() < 0) {
+        if ($number->current() < 0) {
             throw new InvalidArgumentException("must be positive whole number or equal to zero");
         }
 
@@ -75,7 +75,7 @@ final class NaturalNumber
     public function multiplesOf(int $multiplier) : int
     {
         $numbers = [];
-        for ($number = 1; $number < $this->number->currentValue(); $number++) {
+        for ($number = 1; $number < $this->number->current(); $number++) {
             if (($number % $multiplier) == 0) {
                 array_push($numbers, $number);
             }
