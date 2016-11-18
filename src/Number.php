@@ -30,18 +30,12 @@ namespace ProjectEuler;
 
 class Number
 {
-    private $previousValue = 0;
     private $currentValue;
     private $nextValue;
 
     public function __construct($value)
     {
         $this->currentValue = $value;
-    }
-
-    public function previous()
-    {
-        return $this->previousValue;
     }
 
     /**
