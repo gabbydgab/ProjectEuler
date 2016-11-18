@@ -28,17 +28,59 @@ declare(strict_types = 1);
 
 namespace ProjectEuler;
 
-final class Number
+class Number
 {
-    private $value;
+    private $previousValue = 0;
+    private $currentValue;
+    private $nextValue;
 
     public function __construct($value)
     {
-        $this->value = $value;
+        $this->currentValue = $value;
     }
 
-    public function currentValue()
+    public function previous()
     {
-        return $this->value;
+        return $this->previousValue;
+    }
+
+    /**
+     * Get the current value of a number
+     * @return type
+     */
+    public function current()
+    {
+        return $this->currentValue;
+    }
+
+    public function next()
+    {
+        return $this->nextValue;
+    }
+
+    /**
+     * Next value
+     *
+     * @param type $nextValue
+     */
+    public function setNextValue($nextValue)
+    {
+        $this->nextValue = $nextValue;
+    }
+
+    public function generateFibonacciSequence(int $terms)
+    {
+        $sequence = [];
+        $current = $this->current();
+        $next = $this->next();
+
+        for ($iterator = 1; $iterator <= $terms; $iterator++) {
+            array_push($sequence, $current);
+            $previous = $current;
+            $current = $next;
+            $next = $current + $previous;
+        }
+
+        return $sequence;
     }
 }
