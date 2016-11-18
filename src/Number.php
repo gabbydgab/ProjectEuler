@@ -33,6 +33,11 @@ class Number
     private $currentValue;
     private $nextValue;
 
+    /**
+     * Sets the current value of a number
+     *
+     * @param type $value
+     */
     public function __construct($value)
     {
         $this->currentValue = $value;
@@ -40,20 +45,25 @@ class Number
 
     /**
      * Get the current value of a number
-     * @return type
+     * @return int | float
      */
     public function current()
     {
         return $this->currentValue;
     }
 
+    /**
+     * Get the next value of a number
+     *
+     * @return int|float
+     */
     public function next()
     {
         return $this->nextValue;
     }
 
     /**
-     * Next value
+     * Sets the next value of the number
      *
      * @param type $nextValue
      */
@@ -62,7 +72,13 @@ class Number
         $this->nextValue = $nextValue;
     }
 
-    public function generateFibonacciSequence(int $terms)
+    /**
+     * Generates list for Fibonacci sequence
+     *
+     * @param int $terms
+     * @return array
+     */
+    public function generateFibonacciSequence(int $terms = 10) : array
     {
         $sequence = [];
         $current = $this->current();

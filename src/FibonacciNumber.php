@@ -37,7 +37,7 @@ class FibonacciNumber extends Number
         parent::__construct($value);
     }
 
-    public function getEvenFibonacciSequence(int $terms)
+    public function getEvenFibonacciSequence(int $terms) : array
     {
         $evenNumbers = [];
         $numbers = $this->generateFibonacciSequence($terms);
