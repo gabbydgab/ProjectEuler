@@ -13,5 +13,8 @@
         "psr-4": {
             "ProjectEulerTest\\": "test/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.5"
     }
 }
